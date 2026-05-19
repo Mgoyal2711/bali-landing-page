@@ -1,0 +1,470 @@
+@import "tailwindcss";
+
+@theme {
+  /* Premium Bali — calm luxury (maps to existing brand-* utilities) */
+  --color-brand: #4a9b8f;
+  --color-brand-dark: #2d6a7a;
+  --color-brand-darker: #1e4d5c;
+  --color-accent: #c9a96e;
+  --color-softwhite: #f8f9fa;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Poppins", "Inter", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: Poppins, Inter, system-ui, sans-serif;
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    to right,
+    rgba(30, 77, 92, 0.86),
+    rgba(45, 106, 122, 0.78)
+  );
+}
+
+.travel-divider {
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    #1e4d5c 0%,
+    #4a9b8f 50%,
+    #1e4d5c 100%
+  );
+}
+
+.btn-travel-gradient {
+  background: linear-gradient(90deg, #1e4d5c 0%, #2d6a7a 55%, #4a9b8f 100%);
+  transition: filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-travel-gradient:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 4px 16px rgba(30, 77, 92, 0.22);
+}
+
+.btn-travel-warm {
+  background: linear-gradient(90deg, #b8956a 0%, #c9a96e 100%);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.video-frame-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #e8f0ee, #f8faf9);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.video-frame-wrap:hover {
+  transform: scale(1.02);
+  box-shadow: 0 14px 34px rgba(45, 106, 122, 0.18);
+}
+
+.video-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.play-chip {
+  background: rgba(30, 77, 92, 0.82);
+  backdrop-filter: blur(4px);
+}
+
+.ripple-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.slider-track {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.slider-track::-webkit-scrollbar {
+  display: none;
+}
+
+.travel-art-bg {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(74, 155, 143, 0.08), transparent 38%),
+    radial-gradient(circle at 84% 76%, rgba(45, 106, 122, 0.06), transparent 42%),
+    linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.travel-art-bg-soft {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(201, 169, 110, 0.06), transparent 34%),
+    radial-gradient(circle at 10% 90%, rgba(30, 77, 92, 0.05), transparent 36%),
+    linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.how-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(74, 155, 143, 0.1);
+  box-shadow: 0 10px 24px rgba(30, 77, 92, 0.06);
+  transition: transform 280ms ease, box-shadow 280ms ease;
+}
+
+.how-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 36px rgba(30, 77, 92, 0.1);
+}
+
+.video-preview-link {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.video-preview-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(30, 77, 92, 0.55),
+    rgba(74, 155, 143, 0.15),
+    transparent
+  );
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 650ms ease, transform 650ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.package-skeleton {
+  border-radius: 1rem;
+  background: linear-gradient(110deg, #e2e8f0 8%, #f8fafc 18%, #e2e8f0 33%);
+  background-size: 200% 100%;
+  animation: shine 1.2s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+.fire-text {
+  font-family: "Oswald", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+  background: linear-gradient(to bottom, #c9a96e, #4a9b8f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.top-attractions-slider {
+  width: max-content;
+  display: flex;
+  animation: topAttractionScroll 25s linear infinite;
+}
+
+.top-attractions-slider:hover {
+  animation-play-state: paused;
+}
+
+.attraction-card {
+  min-width: 220px;
+  height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+@media (min-width: 768px) {
+  .attraction-card {
+    min-width: 260px;
+    height: 320px;
+  }
+}
+
+.attraction-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.7s;
+}
+
+.attraction-card:hover img {
+  transform: scale(1.1);
+}
+
+.attraction-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.18),
+    transparent
+  );
+}
+
+@keyframes topAttractionScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.arrival-slider {
+  animation: arrivalScroll 28s linear infinite;
+}
+
+.arrival-slider:hover {
+  animation-play-state: paused;
+}
+
+@keyframes arrivalScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.slide-track {
+  width: max-content;
+  animation: autoSlide 25s linear infinite;
+}
+
+.slide-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes autoSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes reviewScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.review-track {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: reviewScroll 24s linear infinite;
+}
+
+.review-track:hover {
+  animation-play-state: paused;
+}
+
+.review-card {
+  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 14px;
+  color: white;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+}
+
+.review-fade::before,
+.review-fade::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.review-fade::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(30, 77, 92, 0.95), transparent);
+}
+
+.review-fade::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(30, 77, 92, 0.95), transparent);
+}
+
+.section-gap {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+@media (max-width: 640px) {
+  #enquiryModal .max-w-\[520px\] {
+    width: 92vw !important;
+    max-height: 85vh !important;
+  }
+
+  #enquiryModal input,
+  #enquiryModal select {
+    height: 56px !important;
+    font-size: 16px !important;
+  }
+}
+
+.shadow-premium {
+  box-shadow: 0 12px 34px rgba(30, 77, 92, 0.18);
+}
+.shadow-card {
+  box-shadow: 0 4px 24px -4px rgba(30, 77, 92, 0.1), 0 12px 32px -8px rgba(0, 0, 0, 0.06);
+}
+
+/* Singapore — rich purple gradient theme */
+[data-destination="singapore"] {
+  --color-brand: #a855f7;
+  --color-brand-dark: #7c3aed;
+  --color-brand-darker: #4c1d95;
+  --color-accent: #e879f9;
+}
+
+[data-destination="singapore"] .hero-gradient {
+  background: linear-gradient(
+    to right,
+    rgba(76, 29, 149, 0.88),
+    rgba(124, 58, 237, 0.8)
+  );
+}
+
+[data-destination="singapore"] .travel-divider {
+  background: linear-gradient(
+    90deg,
+    #4c1d95 0%,
+    #a855f7 50%,
+    #7c3aed 100%
+  );
+}
+
+[data-destination="singapore"] .btn-travel-gradient {
+  background: linear-gradient(
+    90deg,
+    #4c1d95 0%,
+    #7c3aed 45%,
+    #c026d3 100%
+  );
+}
+
+[data-destination="singapore"] .btn-travel-gradient:hover {
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.35);
+}
+
+[data-destination="singapore"] .btn-travel-warm {
+  background: linear-gradient(90deg, #9333ea 0%, #e879f9 100%);
+}
+
+[data-destination="singapore"] .video-frame-wrap {
+  background: linear-gradient(145deg, #f3e8ff, #faf5ff);
+}
+
+[data-destination="singapore"] .video-frame-wrap:hover {
+  box-shadow: 0 14px 34px rgba(124, 58, 237, 0.22);
+}
+
+[data-destination="singapore"] .play-chip {
+  background: rgba(76, 29, 149, 0.85);
+}
+
+[data-destination="singapore"] .travel-art-bg {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(168, 85, 247, 0.1), transparent 38%),
+    radial-gradient(circle at 84% 76%, rgba(124, 58, 237, 0.08), transparent 42%),
+    linear-gradient(180deg, #ffffff 0%, #faf5ff 100%);
+}
+
+[data-destination="singapore"] .travel-art-bg-soft {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(232, 121, 249, 0.08), transparent 34%),
+    radial-gradient(circle at 10% 90%, rgba(76, 29, 149, 0.06), transparent 36%),
+    linear-gradient(180deg, #faf5ff 0%, #ffffff 100%);
+}
+
+[data-destination="singapore"] .how-card {
+  border: 1px solid rgba(168, 85, 247, 0.12);
+  box-shadow: 0 10px 24px rgba(76, 29, 149, 0.08);
+}
+
+[data-destination="singapore"] .how-card:hover {
+  box-shadow: 0 18px 36px rgba(124, 58, 237, 0.14);
+}
+
+[data-destination="singapore"] .video-preview-link::after {
+  background: linear-gradient(
+    to top,
+    rgba(76, 29, 149, 0.58),
+    rgba(168, 85, 247, 0.18),
+    transparent
+  );
+}
+
+[data-destination="singapore"] .fire-text {
+  background: linear-gradient(to bottom, #e879f9, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-destination="singapore"] .review-fade::before {
+  background: linear-gradient(to bottom, rgba(76, 29, 149, 0.95), transparent);
+}
+
+[data-destination="singapore"] .review-fade::after {
+  background: linear-gradient(to top, rgba(76, 29, 149, 0.95), transparent);
+}
+
+[data-destination="singapore"] .shadow-premium {
+  box-shadow: 0 12px 34px rgba(124, 58, 237, 0.22);
+}
+
+[data-destination="singapore"] .shadow-card {
+  box-shadow:
+    0 4px 24px -4px rgba(124, 58, 237, 0.12),
+    0 12px 32px -8px rgba(0, 0, 0, 0.06);
+}
